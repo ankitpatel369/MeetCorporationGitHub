@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content container" ng-controller="ContactUs">
+    <div class="page-wrapper">
+        <header class="page-heading clearfix">
+            <h1 class="heading-title pull-left">Contact</h1>
+            <div class="breadcrumbs pull-right">
+                <ul class="breadcrumbs-list">
+                    <li class="breadcrumbs-label">You are here:</li>
+                    <li><a href="@Url.Action("Index","Home")">Home</a><i class="fa fa-angle-right"></i></li>
+                    <li class="current">Contact</li>
+                </ul>
+            </div><!--//breadcrumbs-->
+        </header>
+        <div class="page-content">
+            <div class="row">
+                <article class="contact-form col-md-8 col-sm-7  page-row">
+                    <h3 class="title">Get in touch</h3>
+                    <p>We’d love to hear from you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut erat magna. Aliquam porta sem a lacus imperdiet posuere. Integer semper eget ligula id eleifend. </p>
+                    @*<form>*@
+                        <div class="form-group name">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" ng-model="Contact.Name" required ngMessage="Please enter name">
+                        </div><!--//form-group-->
+                        <div class="form-group email">
+                            <label for="email">Email<span class="required">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter your email" ng-model="Contact.Email" required  ngMessage="Please required email">
+                        </div><!--//form-group-->
+                        <div class="form-group phone">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" placeholder="Enter your contact number" ng-model="Contact.Phone" required ngMessage="Please required contact no">
+                        </div><!--//form-group-->
+                        <div class="form-group message">
+                            <label for="message">Message<span class="required">*</span></label>
+                            <textarea class="form-control" rows="6" placeholder="Enter your message here..." ng-model="Contact.Message" required ngMessage="Please required message"></textarea>
+                        </div><!--//form-group-->
+                        <button type="submit" class="btn btn-theme" ng-click="SaveContact()">Send message</button>
+                    @*</form>*@
+                </article><!--//contact-form-->
+                <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+                    <br />
+                    <section class="widget has-divider">
+                        <h6 class="title" style="font-weight:400;">CONTACT PARSON : MITESH MOKANI</h6><br>
+                        <h4 class="title">Address:</h4>
+                        <p class="adr">
+                            <span class="adr-group">
+                        <p style="font-weight:600;">Meet Corporations</p>
+                        <span class="street-address">S-7,Shreeji Complex,</span><br>
+                        <span class="region">Near Hirabaug , Varachha Road,</span><br>
+                        <span class="postal-code">Surat : 395006, Gujarat,</span><br>
+                        <span class="country-name">India</span>
+                        </span>
+                        </p>
+                    </section><!--//widget-->
+
+                    <section class="widget">
+                        <h3 class="title">All Enquiries:</h3>
+                        <p class="tel"><i class="fa fa-phone"></i>Tel: 0091-261-3192936</p>
+                        <p class="tel"><i class="fa fa-phone"></i>Mob: 0091-9712302936</p>
+                        <p class="email"><i class="fa fa-envelope"></i>Email:</p>
+                        <p class="email"><a href="@Url.Action("Index","Inquiry")">info@meetcorporations.com</a></p>
+                        <p class="email"><a href="@Url.Action("Index","Inquiry")">meetcorporations@hotmail.com</a></p>
+                        <p class="email"><a href="@Url.Action("Index","Inquiry")">meetcorporations@gmail.com</a></p>
+                        <p class="email"><a href="@Url.Action("Index","Inquiry")">meetcorporations@yahoo.com</a></p>
+                    </section>
+                </aside><!--//page-sidebar-->
+            </div><!--//page-row-->
+            <div class="page-row">
+                <article class="map-section">
+                    <h3 class="title">How to find us</h3>
+                    <div class="gmap-wrapper" id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3719.387247468198!2d72.86188956493578!3d21.216487285896964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x3be04f106d964481%3A0xc96a722d2498f972!2s2%2F3%2C+Varachha+Rd%2C+Vaibhav+Complex%2C+Hirabag+Circle%2C+Hirabaugh%2C+Surat%2C+Gujarat+395006%2C+India!3m2!1d21.216575799999998!2d72.8641863!4m5!1s0x3be04f1072ddffad%3A0xe1b2b03a610738f6!2sMEET+CORPORATIONS%2C+S-7+Shreeji+Complex%2C+Near+Hirabag%2C+Varachha+Road%2C%2C+Surat%2C+Gujarat+395006%2C+India!3m2!1d21.216399!2d72.863941!5e0!3m2!1sen!2sin!4v1488986626274" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div><!--//gmap-wrapper-->
+                </article><!--//map-->
+            </div><!--//page-row-->
+        </div><!--//page-content-->
+    </div><!--//page-wrapper-->
+</div>
+<script>
+    module = angular.module('app', []);
+    module.controller("ContactUs", ['$scope', '$filter', '$http', '$q', '$interval', function ($scope, $filter, $http, $q, $interval, $window) {
+        $scope.Contact = {};
+        
+        $scope.SaveContact = function () {
+            if (ValidateRequired() == false) {
+                return;
+            };
+            var response = $http({
+                method: "POST",
+                async: true,
+                url: '@Url.Action("SaveContact", "ContactUs")',
+                data: { model: $scope.Contact },
+                dataType: "json",
+            }).success(function (data) {
+                if (data != 0) {
+                    toast('Your details sucessfully submited. !!!');
+                    $scope.Contact = {};
+                }
+                else {
+                    alert('Please contact to meet corporation...');
+                }
+            });
+        }
+    }]);
+</script>

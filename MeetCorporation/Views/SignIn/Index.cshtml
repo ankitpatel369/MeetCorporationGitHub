@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Sign In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content container">
+            <div class="page-wrapper">
+                <header class="page-heading clearfix">
+                    <h1 class="heading-title pull-left">Sign In</h1>
+                    <div class="breadcrumbs pull-right">
+                        <ul class="breadcrumbs-list">
+                            <li class="breadcrumbs-label">You are here:</li>
+                            <li><a href="@Url.Action("Index","Home")">Home</a><i class="fa fa-angle-right"></i></li>
+                            <li class="current">Sign In</li>
+                        </ul>
+                    </div><!--//breadcrumbs-->
+                </header> 
+                <div class="page-content"> 
+                    <div class="row">
+                        <article class="contact-form col-md-8 col-sm-7  page-row">                            
+                            <h3 class="title">Create New Account</h3>
+                            <p>We’d love to hear from you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut erat magna. Aliquam porta sem a lacus imperdiet posuere. Integer semper eget ligula id eleifend. </p>
+                            <form>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-left: 0px;">
+                                    <div class="form-group phone">
+                                        <label for="phone">First Name</label>
+                                        <input id="phone" type="tel" class="form-control" placeholder="Enter first name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-right: 0px;">
+                                    <div class="form-group phone">
+                                        <label for="phone">Last Name</label>
+                                        <input id="phone" type="tel" class="form-control" placeholder="Enter last name">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-left: 0px;">
+                                    <div class="form-group phone">
+                                        <label for="phone">Email Id</label>
+                                        <input id="phone" type="tel" class="form-control" placeholder="Enter email address">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-right: 0px;">
+                                    <div class="form-group phone">
+                                        <label for="phone">Mobile No</label>
+                                        <input id="phone" type="tel" class="form-control" placeholder="Enter mobile no">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-left: 0px;">
+                                    <div class="form-group phone">
+                                        <label for="phone">User Name</label>
+                                        <input id="phone" type="tel" class="form-control" placeholder="Enter username">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group message">
+                                    <label for="message">Address<span class="required">*</span></label>
+                                    <textarea id="message" class="form-control" rows="3" placeholder="Enter address."></textarea>
+                                </div><!--//form-group-->
+                                <button type="submit" class="btn btn-theme">Register</button>
+                            </form>                  
+                        </article>
+                        
+                        <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+                            <section class="widget has-divider contact-form">
+                                <h3 class="title">Login</h3>
+                                <div class="form-group name">
+                                    <label for="name">User Name<span class="required">*</span></label>
+                                    <input id="name" type="text" class="form-control" placeholder="Enter UserName">
+                                </div>
+                                <div class="form-group name">
+                                    <label for="name">Passward<span class="required">*</span></label>
+                                    <input id="name" type="passward" class="form-control" placeholder="Enter Passward">
+                                </div>
+                                <button type="submit" class="btn btn-theme">Sign In</button>
+                            </section>
+                            <section class="widget has-divider">
+                                <h4 class="title">Address:</h4>
+                                <p class="adr">
+                                    <span class="adr-group">       
+                                        <p style="font-weight:600;">Meet Corporations</p>
+                                        <span class="street-address">S-7,Shreeji Complex,</span><br>
+                                        <span class="region">Near Hirabaug , Varachha Road,</span><br>
+                                        <span class="postal-code">Surat : 395006, Gujarat,</span><br>
+                                        <span class="country-name">India</span>  
+                                    </span>
+                                </p>
+                            </section>
+                            
+                            <section class="widget">
+                                <h3 class="title">All Enquiries:</h3>
+                                <p class="tel"><i class="fa fa-phone"></i>Tel: 0091-261-3192936</p>
+                                <p class="email"><i class="fa fa-envelope"></i>Email:info@meetcorporations.com</p> 
+                            </section> 
+                              
+                        </aside>
+                    </div><!--//page-row-->
+                </div><!--//page-content-->
+            </div><!--//page-wrapper--> 
+        </div>

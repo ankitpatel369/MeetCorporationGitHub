@@ -1,0 +1,65 @@
+﻿<aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+    <section class="widget has-divider" ng-controller="ContactUs">
+        <h3 class="title">Quick Contact</h3>
+        <div class="form-group name">
+            <input type="text" class="form-control" placeholder="Name*" ng-model="Contact.Name" required ngMessage="Please enter name">
+        </div>
+        <div class="form-group name">
+            <input type="text" class="form-control" placeholder="Email*" ng-model="Contact.Email" required ngMessage="Please required email">
+        </div>
+        <div class="form-group name">
+            <input type="text" class="form-control" placeholder="Contact number*" ng-model="Contact.Phone" required ngMessage="Please required contact no">
+        </div>
+        <div class="form-group message">
+            <textarea class="form-control" rows="3" placeholder="Message*" ng-model="Contact.Message" required ngMessage="Please required message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-theme" ng-click="SaveContact()">Send message</button>
+    </section>
+
+    <section class="widget has-divider">
+        <h4 class="title">Address:</h4>
+        <p class="adr">
+            <span class="adr-group"></span>
+        <p style="font-weight:600;">Meet Corporations</p>
+        <span class="street-address">S-7,Shreeji Complex,</span><br>
+        <span class="region">Near Hirabaug , Varachha Road,</span><br>
+        <span class="postal-code">Surat : 395006, Gujarat,</span><br>
+        <span class="country-name">India</span>
+        </p>
+    </section>
+
+    <section class="widget">
+        <h3 class="title">All Enquiries:</h3>
+        <p class="tel"><i class="fa fa-phone"></i>Tel: 0091-261-3192936</p>
+        <p class="email"><i class="fa fa-envelope"></i>Email:info@meetcorporations.com</p>
+    </section>
+
+</aside>
+
+<script>
+    module = angular.module('app', []);
+    module.controller("ContactUs", ['$scope', '$filter', '$http', '$q', '$interval', function ($scope, $filter, $http, $q, $interval, $window) {
+        $scope.Contact = {};
+
+        $scope.SaveContact = function () {
+            if (ValidateRequired() == false) {
+                return;
+            };
+            var response = $http({
+                method: "POST",
+                async: true,
+                url: '@Url.Action("SaveContact", "ContactUs")',
+                data: { model: $scope.Contact },
+                dataType: "json",
+            }).success(function (data) {
+                if (data != 0) {
+                    toast('Your details sucessfully submited. !!!');
+                    $scope.Contact = {};
+                }
+                else {
+                    alert('Please contact to meet corporation...');
+                }
+            });
+        }
+    }]);
+</script>

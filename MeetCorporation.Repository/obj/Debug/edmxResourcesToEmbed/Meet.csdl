@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeetCorporationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MeetCorporationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contacts" EntityType="MeetCorporationModel.Contact" />
+    <EntitySet Name="Inquiries" EntityType="MeetCorporationModel.Inquiry" />
+    <EntitySet Name="MST_User" EntityType="MeetCorporationModel.MST_User" />
+  </EntityContainer>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Inquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Adress" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="City" />
+    <Property Type="Int32" Name="State" />
+    <Property Type="Int32" Name="Country" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InquiryMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MST_User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Type="Int32" Name="User_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OTP" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is_Active" />
+  </EntityType>
+</Schema>

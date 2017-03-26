@@ -1,0 +1,15 @@
+E:\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.dll
+E:\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.pdb
+E:\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.csprojResolveAssemblyReference.cache
+E:\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.dll
+E:\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.pdb
+F:\ProjectWork\DoT_NeT\MVC\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.dll
+F:\ProjectWork\DoT_NeT\MVC\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.pdb
+F:\ProjectWork\DoT_NeT\MVC\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.csprojResolveAssemblyReference.cache
+F:\ProjectWork\DoT_NeT\MVC\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.dll
+F:\ProjectWork\DoT_NeT\MVC\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.pdb
+E:\MeetCorporation\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.dll
+E:\MeetCorporation\MeetCorporation\MeetCorporation.Model\bin\Debug\MeetCorporation.Model.pdb
+E:\MeetCorporation\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.csprojResolveAssemblyReference.cache
+E:\MeetCorporation\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.dll
+E:\MeetCorporation\MeetCorporation\MeetCorporation.Model\obj\Debug\MeetCorporation.Model.pdb

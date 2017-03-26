@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eae0118fa30342148fb9fd4bd0437c0b" Name="Diagram1">
+        <EntityTypeShape EntityType="MeetCorporationModel.Contact" Width="1.5" PointX="10.608082830257754" PointY="16.087942041497652" />
+        <EntityTypeShape EntityType="MeetCorporationModel.Inquiry" Width="1.5" PointX="7.6745565960530922" PointY="7.1136326971993" />
+        <EntityTypeShape EntityType="MeetCorporationModel.MST_User" Width="1.5" PointX="0.6796763188576681" PointY="23.998054262249756" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

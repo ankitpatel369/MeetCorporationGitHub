@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Awards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content container">
+            <div class="page-wrapper">
+                <header class="page-heading clearfix">
+                    <h1 class="heading-title pull-left">Awards</h1>
+                    <div class="breadcrumbs pull-right">
+                        <ul class="breadcrumbs-list">
+                            <li class="breadcrumbs-label">You are here:</li>
+                            <li><a href="@Url.Action("Index","Home")">Home</a><i class="fa fa-angle-right"></i></li>
+                            <li class="current">Awards</li>
+                        </ul>
+                    </div><!--//breadcrumbs-->
+                </header> 
+                <div class="page-content">                 
+                    <div class="row page-row">
+                        <div class="team-wrapper col-md-8 col-sm-7">  
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row page-row">
+                                <figure class="thumb col-md-6 col-sm-6 col-xs-12">
+                                    <img class="img-responsive" src="~/Content/New_Images/award1-big.jpg" alt="" />
+                                </figure>
+                                <div class="details col-md-6 col-sm-6 col-xs-12">
+                                    <h4>Principle</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row page-row">
+                                <figure class="thumb col-md-6 col-sm-6 col-xs-12">
+                                    <img class="img-responsive" src="~/Content/New_Images/award1-big.jpg" alt="" />
+                                </figure>
+                                <div class="details col-md-6 col-sm-6 col-xs-12">
+                                    <h4>Deputy Principle</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row page-row">
+                                <figure class="thumb col-md-6 col-sm-6 col-xs-12">
+                                    <img class="img-responsive" src="~/Content/New_Images/award1-big.jpg" alt="" />
+                                </figure>
+                                <div class="details col-md-6 col-sm-6 col-xs-12">
+                                    <h4>Assistant Principle</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row page-row">
+                                <figure class="thumb col-md-6 col-sm-6 col-xs-12">
+                                    <img class="img-responsive" src="~/Content/New_Images/award1-big.jpg" alt="" />
+                                </figure>
+                                <div class="details col-md-6 col-sm-6 col-xs-12">
+                                    <h4>Assistant Principle</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div><!--//team-wrapper-->
+
+                        @Html.Partial("_QuickContact")
+                    </div><!--//page-row-->
+                </div><!--//page-content-->
+            </div><!--//page--> 
+        </div>

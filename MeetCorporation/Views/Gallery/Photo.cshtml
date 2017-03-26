@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content container">
+            <div class="page-wrapper">
+                <header class="page-heading clearfix">
+                    <h1 class="heading-title pull-left">Gallery <small>(Photo)</small></h1>
+                    <div class="breadcrumbs pull-right">
+                        <ul class="breadcrumbs-list">
+                            <li class="breadcrumbs-label">You are here:</li>
+                            <li><a href="@Url.Action("Index","Home")">Home</a><i class="fa fa-angle-right"></i></li>
+                            <li class="current">Gallery</li>
+                        </ul>
+                    </div><!--//breadcrumbs-->
+                </header> 
+                <div class="page-content">    
+                    @*<div class="page-row">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis, nisl eget venenatis ultricies, eros augue semper turpis, vitae euismod leo urna vitae nulla. Mauris sem urna, aliquet quis sodales et, convallis vel ante. Sed convallis id sem sed feugiat. Aenean eget tempus tortor.</p>    
+                        <p class="page-row text-muted">Image credit: <a href="http://www.flickr.com/photos/francisco_osorio/" target="_blank">Francisco Osorio</a>, <a href="http://creativecommons.org/licenses/by/2.0/deed.en" target="_blank">Creative Commons 2.0 license</a></p>
+                    </div>*@
+                    <div class="row page-row">
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">                                
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-1.jpg">
+                            <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-1.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Lorem Ipsum</a></small></h4>
+                                    <p>Integer ornare nisl tortor, sed condimentum metus pulvinar ut.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" href="~/Content/assets/images/gallery/gallery-24.jpg">
+                            <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-24.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Ornare</a></small></h4>
+                                    <p>Aenean dictum urna nec ligula consectetur, id ornare leo tincidunt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-23.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-23.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-24.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-24.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-14.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-14.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-15.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-15.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-16.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-16.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-17.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-17.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-18.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-18.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-19.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-19.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-20.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-20.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <div class="album-cover">
+                                <a class="prettyphoto" rel="prettyPhoto[gallery]" title="Lorem ipsum dolor sit amet" href="~/Content/assets/images/gallery/gallery-21.jpg">
+                                    <img class="img-responsive img-thumbnail" src="~/Content/assets/images/gallery/gallery-thumb-21.jpg" alt="" /></a>
+                                <div class="desc">
+                                    <h4><small><a href="#">Album Suspendisse</a></small></h4>
+                                    <p>Suspendisse at purus ac neque auctor viverra vel in arcu. Quisque commodo augue nisi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div><!--//page-row-->
+                    
+                </div><!--//page-content-->
+            </div><!--//page--> 
+        </div><!--//content-->

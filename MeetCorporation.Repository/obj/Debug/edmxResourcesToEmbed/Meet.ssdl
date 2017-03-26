@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeetCorporationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MeetCorporationModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="MeetCorporationModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inquiry" EntityType="MeetCorporationModel.Store.Inquiry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MST_User" EntityType="MeetCorporationModel.Store.MST_User" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="60" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Inquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adress" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="City" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="Country" Type="int" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="InquiryMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MST_User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+</Schema>
