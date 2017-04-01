@@ -1,17 +1,17 @@
-﻿<aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
-    <section class="widget has-divider" ng-controller="ContactUs">
+﻿<aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1" ng-controller="ContactUs">
+    <section class="widget has-divider" >
         <h3 class="title">Quick Contact</h3>
         <div class="form-group name">
-            <input type="text" class="form-control" placeholder="Name*" ng-model="Contact.Name" required ngMessage="Please enter name">
+            <input type="text" class="form-control" placeholder="Name*" ng-model="Contact.Name" required ngMessage="Please required name" ngvalGroup="Con">
         </div>
         <div class="form-group name">
-            <input type="text" class="form-control" placeholder="Email*" ng-model="Contact.Email" required ngMessage="Please required email">
+            <input type="email" class="form-control" placeholder="Email*" ng-model="Contact.Email" required ngMessage="Please required email" ngvalGroup="Con">
         </div>
         <div class="form-group name">
-            <input type="text" class="form-control" placeholder="Contact number*" ng-model="Contact.Phone" required ngMessage="Please required contact no">
+            <input type="text" class="form-control" placeholder="Contact number*" ng-model="Contact.Phone" required ngMessage="Please required contact no" ngvalGroup="Con">
         </div>
         <div class="form-group message">
-            <textarea class="form-control" rows="3" placeholder="Message*" ng-model="Contact.Message" required ngMessage="Please required message"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Message*" ng-model="Contact.Message" required ngMessage="Please required message" ngvalGroup="Con"></textarea>
         </div>
         <button type="submit" class="btn btn-theme" ng-click="SaveContact()">Send message</button>
     </section>
@@ -35,31 +35,3 @@
     </section>
 
 </aside>
-
-<script>
-    module = angular.module('app', []);
-    module.controller("ContactUs", ['$scope', '$filter', '$http', '$q', '$interval', function ($scope, $filter, $http, $q, $interval, $window) {
-        $scope.Contact = {};
-
-        $scope.SaveContact = function () {
-            if (ValidateRequired() == false) {
-                return;
-            };
-            var response = $http({
-                method: "POST",
-                async: true,
-                url: '@Url.Action("SaveContact", "ContactUs")',
-                data: { model: $scope.Contact },
-                dataType: "json",
-            }).success(function (data) {
-                if (data != 0) {
-                    toast('Your details sucessfully submited. !!!');
-                    $scope.Contact = {};
-                }
-                else {
-                    alert('Please contact to meet corporation...');
-                }
-            });
-        }
-    }]);
-</script>

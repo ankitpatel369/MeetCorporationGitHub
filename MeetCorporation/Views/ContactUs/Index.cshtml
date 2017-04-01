@@ -20,14 +20,13 @@
                 <article class="contact-form col-md-8 col-sm-7  page-row">
                     <h3 class="title">Get in touch</h3>
                     <p>We’d love to hear from you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut erat magna. Aliquam porta sem a lacus imperdiet posuere. Integer semper eget ligula id eleifend. </p>
-                    @*<form>*@
                         <div class="form-group name">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" placeholder="Enter your name" ng-model="Contact.Name" required ngMessage="Please enter name">
+                            <input type="text" class="form-control" placeholder="Enter your name" ng-model="Contact.Name" required ngMessage="Please required name">
                         </div><!--//form-group-->
                         <div class="form-group email">
                             <label for="email">Email<span class="required">*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter your email" ng-model="Contact.Email" required  ngMessage="Please required email">
+                            <input type="email" class="form-control" placeholder="Enter your email" ng-model="Contact.Email" required  ngMessage="Please required email">
                         </div><!--//form-group-->
                         <div class="form-group phone">
                             <label for="phone">Phone</label>
@@ -38,7 +37,6 @@
                             <textarea class="form-control" rows="6" placeholder="Enter your message here..." ng-model="Contact.Message" required ngMessage="Please required message"></textarea>
                         </div><!--//form-group-->
                         <button type="submit" class="btn btn-theme" ng-click="SaveContact()">Send message</button>
-                    @*</form>*@
                 </article><!--//contact-form-->
                 <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
                     <br />

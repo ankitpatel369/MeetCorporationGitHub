@@ -156,13 +156,13 @@ function DisplaySelectionGried($scope, $http, $q, $interval, uiGridConstants, UR
         iSortCols: null
     };
     $scope.RunTimeChecked = false;
-    
+
     //try {
     //    debugger
     //    //for (var i = 0; i < $scope.gridApi.grid.columns.length; i++) {
     //    //    $scope.gridApi.grid.columns[i].filters[0].term = "";
     //    //}
-        
+
     //} catch (e) {
 
     //}
@@ -246,7 +246,7 @@ function DisplaySelectionGried($scope, $http, $q, $interval, uiGridConstants, UR
                         }
                     }
                 }
-                
+
                 paginationOptions.pageNumber = 1;
                 paginationOptions.iDisplayLength = paginationOptions.iDisplayLength;
 
@@ -322,7 +322,7 @@ function GriedParam($scope, $http, $q, $interval, uiGridConstants, URL, header, 
         useExternalFiltering: true,
         enableColumnResizing: true,
         //  showColumnFooter: true,
-        modifierKeysToMultiSelectCells:true,
+        modifierKeysToMultiSelectCells: true,
         columnDefs:
            header
         ,
@@ -402,10 +402,9 @@ function GriedParam($scope, $http, $q, $interval, uiGridConstants, URL, header, 
                 paginationOptions.iDisplayLength = pageSize;
                 getDisplayRecords();
             });
-            
+
             var _flag = $scope[GridOptionName] == undefined || $scope[GridOptionName] == "" ? false : $scope[GridOptionName].onRegisterExApi;
-            if (_flag)
-            {
+            if (_flag) {
                 $scope[GridOptionName].onRegisterExApi(gridApi);
             }
 
@@ -449,7 +448,7 @@ function GriedParam($scope, $http, $q, $interval, uiGridConstants, URL, header, 
                 loaderHide();
                 if ($scope.CallBack == 1) {
                     //if (data.aaData.length == 0)
-                        $scope.CallBackFunction();
+                    $scope.CallBackFunction();
                 }
                 paginationOptions.sSearch = "";
                 sSearch = "";
@@ -470,8 +469,8 @@ function GriedParam($scope, $http, $q, $interval, uiGridConstants, URL, header, 
                 $scope.height += 80;
                 loaderHide();
                 if ($scope.CallBack == 1) {
-                   // if (data.aaData.length == 0)
-                        $scope.CallBackFunction();
+                    // if (data.aaData.length == 0)
+                    $scope.CallBackFunction();
                 }
                 paginationOptions.sSearch = "";
                 sSearch = "";
@@ -639,7 +638,7 @@ function GriedParamPush($scope, $http, $q, $interval, uiGridConstants, URL, head
                     $scope.data.push(row);
 
                 } catch (e) { }
-                
+
             });
             $scope[GridOptionName].data = _.filter($scope.data);
             $scope.height = (($scope[GridOptionName].data.length * 30) + 30);
@@ -712,21 +711,42 @@ function GriedAddRowOption($scope, GridOptionName) {
 
 }
 
-function ValidateRequired() {
+function ValidateRequired(valGroup) {
+    //var retVal = false;
+    //$('.wrapper :input[required="required"]').each(function () {
+    //    if (!this.validity.valid) {
+    //        $(this).focus();
+    //        // break
+    //        if (!$(this).attr("ngMessage") == false) {
+    //            toast($(this).attr("ngMessage"));
+    //        }
+    //        retVal = false;
+    //        return false;
+    //    }
+    //    else {
+    //        retVal = true;
+    //    }
+    //});
+
+    //return retVal;
+
     var retVal = false;
     $('.wrapper :input[required="required"]').each(function () {
-        if (!this.validity.valid) {
-            $(this).focus();
-            // break
-            if (!$(this).attr("ngMessage") == false) {
-                toast($(this).attr("ngMessage"));
+        if ($(this).attr("ngvalGroup") == valGroup) {
+            if (!this.validity.valid) {
+                $(this).focus();
+                // break
+                if (!$(this).attr("ngMessage") == false) {
+                    toast($(this).attr("ngMessage"));
+                }
+                retVal = false;
+                return false;
             }
-            retVal = false;
-            return false;
+            else {
+                retVal = true;
+            }
         }
-        else {
-            retVal = true;
-        }
+
     });
 
     return retVal;
@@ -1457,7 +1477,7 @@ module.directive('uiGridCellSelection', function ($compile) {
     */
     return {
         require: 'uiGrid',
-        link: function(scope, element, attrs, uiGridCtrl){
+        link: function (scope, element, attrs, uiGridCtrl) {
             // Taken from cellNav
             //add an element with no dimensions that can be used to set focus and capture keystrokes
             var gridApi = uiGridCtrl.grid.api
@@ -1468,20 +1488,20 @@ module.directive('uiGridCellSelection', function ($compile) {
                 focuser[0].focus();
             };
 
-              
-            gridApi.cellNav.on.viewPortKeyDown(scope, function(e){
-                if((e.keyCode===99 || e.keyCode===67) && e.ctrlKey){
+
+            gridApi.cellNav.on.viewPortKeyDown(scope, function (e) {
+                if ((e.keyCode === 99 || e.keyCode === 67) && e.ctrlKey) {
                     var cells = gridApi.cellNav.getCurrentSelection();
                     var copyString = '',
                      rowId = cells[0].row.uid;
-                    angular.forEach(cells,function(cell){
-                        if (cell.row.uid !== rowId){
+                    angular.forEach(cells, function (cell) {
+                        if (cell.row.uid !== rowId) {
                             copyString += '\n';
                             rowId = cell.row.uid;
                         }
                         copyString += gridApi.grid.getCellValue(cell.row, cell.col).toString();
                         copyString += ', ';
-           
+
                     })
                     // Yes, this should be build into a directive, but this is a quick and dirty example.
                     var textArea = document.getElementById("grid-clipboard");
@@ -1489,16 +1509,16 @@ module.directive('uiGridCellSelection', function ($compile) {
                     textArea = document.getElementById("grid-clipboard").select();
                 }
             })
-            focuser.on('keyup', function(e){
-        
+            focuser.on('keyup', function (e) {
+
             })
         }
     }
-}).directive('uiGridClipboard', function(){
+}).directive('uiGridClipboard', function () {
     return {
         template: '<textarea id="grid-clipboard" ng-model="uiGridClipBoardContents"></textarea>',
         replace: true,
-        link: function(scope, element, attrs){
+        link: function (scope, element, attrs) {
             // Obviously this needs to be hidden better (probably a z-index, and positioned behind something opaque)
             element.css('height', '1px');
             element.css('width', '1px');
@@ -1677,7 +1697,7 @@ module.directive('setHeight', function ($window) {
             //setTimeout(function () {
             //    element.css('height', ((parseFloat($window.innerHeight) - parseFloat($(element).offset().top)) - 24) + 'px');
             //}, 5000);
-          
+
             //element.height($window.innerHeight/3);
             //alert(((parseFloat($window.innerHeight) - parseFloat($(element).offset().top)) - 40))
             //alert("Height :" + parseFloat($window.innerHeight) +" - Top To Grid : "+ parseFloat($(element).offset().top) );
@@ -1734,337 +1754,6 @@ module.filter('noround', function () {
     };
 });
 
-//module.service('uiGridCellNavService', ['gridUtil', 'uiGridConstants', 'uiGridCellNavConstants', '$q', 'uiGridCellNavFactory', 'GridRowColumn', 'ScrollEvent',
-//    function (gridUtil, uiGridConstants, uiGridCellNavConstants, $q, UiGridCellNav, GridRowColumn, ScrollEvent) {
-
-//        var service = {
-
-//            initializeGrid: function (grid) {
-//                grid.registerColumnBuilder(service.cellNavColumnBuilder);
-
-//                /**
-//                 *  @ngdoc object
-//                 *  @name ui.grid.cellNav:Grid.cellNav
-//                 * @description cellNav properties added to grid class
-//                 */
-//                grid.cellNav = {};
-//                grid.cellNav.lastRowCol = null;
-//                grid.cellNav.focusedCells = [];
-
-//                service.defaultGridOptions(grid.options);
-
-//                /**
-//                 *  @ngdoc object
-//                 *  @name ui.grid.cellNav.api:PublicApi
-//                 *
-//                 *  @description Public Api for cellNav feature
-//                 */
-//                var publicApi = {
-//                    events: {
-//                        cellNav: {
-//                            /**
-//                             * @ngdoc event
-//                             * @name navigate
-//                             * @eventOf  ui.grid.cellNav.api:PublicApi
-//                             * @description raised when the active cell is changed
-//                             * <pre>
-//                             *      gridApi.cellNav.on.navigate(scope,function(newRowcol, oldRowCol){})
-//                             * </pre>
-//                             * @param {object} newRowCol new position
-//                             * @param {object} oldRowCol old position
-//                             */
-//                            navigate: function (newRowCol, oldRowCol) { },
-//                            /**
-//                             * @ngdoc event
-//                             * @name viewPortKeyDown
-//                             * @eventOf  ui.grid.cellNav.api:PublicApi
-//                             * @description  is raised when the viewPort receives a keyDown event. Cells never get focus in uiGrid
-//                             * due to the difficulties of setting focus on a cell that is not visible in the viewport.  Use this
-//                             * event whenever you need a keydown event on a cell
-//                             * <br/>
-//                             * @param {object} event keydown event
-//                             * @param {object} rowCol current rowCol position
-//                             */
-//                            viewPortKeyDown: function (event, rowCol) { },
-
-//                            /**
-//                             * @ngdoc event
-//                             * @name viewPortKeyPress
-//                             * @eventOf  ui.grid.cellNav.api:PublicApi
-//                             * @description  is raised when the viewPort receives a keyPress event. Cells never get focus in uiGrid
-//                             * due to the difficulties of setting focus on a cell that is not visible in the viewport.  Use this
-//                             * event whenever you need a keypress event on a cell
-//                             * <br/>
-//                             * @param {object} event keypress event
-//                             * @param {object} rowCol current rowCol position
-//                             */
-//                            viewPortKeyPress: function (event, rowCol) { }
-//                        }
-//                    },
-//                    methods: {
-//                        cellNav: {
-//                            /**
-//                             * @ngdoc function
-//                             * @name scrollToFocus
-//                             * @methodOf  ui.grid.cellNav.api:PublicApi
-//                             * @description brings the specified row and column into view, and sets focus
-//                             * to that cell
-//                             * @param {object} rowEntity gridOptions.data[] array instance to make visible and set focus
-//                             * @param {object} colDef to make visible and set focus
-//                             * @returns {promise} a promise that is resolved after any scrolling is finished
-//                             */
-//                            scrollToFocus: function (rowEntity, colDef) {
-//                                return service.scrollToFocus(grid, rowEntity, colDef);
-//                            },
-
-//                            /**
-//                             * @ngdoc function
-//                             * @name getFocusedCell
-//                             * @methodOf  ui.grid.cellNav.api:PublicApi
-//                             * @description returns the current (or last if Grid does not have focus) focused row and column
-//                             * <br> value is null if no selection has occurred
-//                             */
-//                            getFocusedCell: function () {
-//                                return grid.cellNav.lastRowCol;
-//                            },
-
-//                            /**
-//                             * @ngdoc function
-//                             * @name getCurrentSelection
-//                             * @methodOf  ui.grid.cellNav.api:PublicApi
-//                             * @description returns an array containing the current selection
-//                             * <br> array is empty if no selection has occurred
-//                             */
-//                            getCurrentSelection: function () {
-//                                return grid.cellNav.focusedCells;
-//                            },
-
-//                            /**
-//                             * @ngdoc function
-//                             * @name rowColSelectIndex
-//                             * @methodOf  ui.grid.cellNav.api:PublicApi
-//                             * @description returns the index in the order in which the GridRowColumn was selected, returns -1 if the GridRowColumn
-//                             * isn't selected
-//                             * @param {object} rowCol the rowCol to evaluate
-//                             */
-//                            rowColSelectIndex: function (rowCol) {
-//                                //return gridUtil.arrayContainsObjectWithProperty(grid.cellNav.focusedCells, 'col.uid', rowCol.col.uid) &&
-//                                var index = -1;
-//                                for (var i = 0; i < grid.cellNav.focusedCells.length; i++) {
-//                                    if (grid.cellNav.focusedCells[i].col.uid === rowCol.col.uid &&
-//                                      grid.cellNav.focusedCells[i].row.uid === rowCol.row.uid) {
-//                                        index = i;
-//                                        break;
-//                                    }
-//                                }
-//                                return index;
-//                            }
-//                        }
-//                    }
-//                };
-
-//                grid.api.registerEventsFromObject(publicApi.events);
-
-//                grid.api.registerMethodsFromObject(publicApi.methods);
-
-//            },
-
-//            defaultGridOptions: function (gridOptions) {
-//                /**
-//                 *  @ngdoc object
-//                 *  @name ui.grid.cellNav.api:GridOptions
-//                 *
-//                 *  @description GridOptions for cellNav feature, these are available to be
-//                 *  set using the ui-grid {@link ui.grid.class:GridOptions gridOptions}
-//                 */
-
-//                /**
-//                 *  @ngdoc object
-//                 *  @name modifierKeysToMultiSelectCells
-//                 *  @propertyOf  ui.grid.cellNav.api:GridOptions
-//                 *  @description Enable multiple cell selection only when using the ctrlKey or shiftKey.
-//                 *  <br/>Defaults to false
-//                 */
-//                gridOptions.modifierKeysToMultiSelectCells = gridOptions.modifierKeysToMultiSelectCells === true;
-
-//            },
-
-//            /**
-//             * @ngdoc service
-//             * @name decorateRenderContainers
-//             * @methodOf ui.grid.cellNav.service:uiGridCellNavService
-//             * @description  decorates grid renderContainers with cellNav functions
-//             */
-//            decorateRenderContainers: function (grid) {
-
-//                var rightContainer = grid.hasRightContainer() ? grid.renderContainers.right : null;
-//                var leftContainer = grid.hasLeftContainer() ? grid.renderContainers.left : null;
-
-//                if (leftContainer !== null) {
-//                    grid.renderContainers.left.cellNav = new UiGridCellNav(grid.renderContainers.body, leftContainer, rightContainer, grid.renderContainers.body);
-//                }
-//                if (rightContainer !== null) {
-//                    grid.renderContainers.right.cellNav = new UiGridCellNav(grid.renderContainers.body, rightContainer, grid.renderContainers.body, leftContainer);
-//                }
-
-//                grid.renderContainers.body.cellNav = new UiGridCellNav(grid.renderContainers.body, grid.renderContainers.body, leftContainer, rightContainer);
-//            },
-
-//            /**
-//             * @ngdoc service
-//             * @name getDirection
-//             * @methodOf ui.grid.cellNav.service:uiGridCellNavService
-//             * @description  determines which direction to for a given keyDown event
-//             * @returns {uiGridCellNavConstants.direction} direction
-//             */
-//            getDirection: function (evt) {
-//                if (evt.keyCode === uiGridConstants.keymap.LEFT || (evt.keyCode === uiGridConstants.keymap.TAB && evt.shiftKey)) {
-//                    return uiGridCellNavConstants.direction.LEFT;
-//                }
-//                if (evt.keyCode === uiGridConstants.keymap.RIGHT || evt.keyCode === uiGridConstants.keymap.ENTER || evt.keyCode === uiGridConstants.keymap.TAB) {
-//                    return uiGridCellNavConstants.direction.RIGHT;
-//                }
-
-//                if (evt.keyCode === uiGridConstants.keymap.DOWN ||evt.keyCode === uiGridConstants.keymap.ENTER && !(evt.ctrlKey || evt.altKey)) {
-//                    return uiGridCellNavConstants.direction.DOWN;
-//                }
-
-
-//                if (evt.keyCode === uiGridConstants.keymap.ENTER && (evt.ctrlKey || evt.altKey)) {
-//                    return uiGridCellNavConstants.direction.DOWN;
-//                }
-
-                
-
-//                if (evt.keyCode === uiGridConstants.keymap.UP ||(evt.keyCode === uiGridConstants.keymap.ENTER && evt.shiftKey)) {
-
-//                    return uiGridCellNavConstants.direction.UP;
-//                }
-
-
-
-                
-//                if (evt.keyCode === uiGridConstants.keymap.PG_UP) {
-//                    return uiGridCellNavConstants.direction.PG_UP;
-//                }
-
-
-
-//                if (evt.keyCode === uiGridConstants.keymap.PG_DOWN) {
-//                    return uiGridCellNavConstants.direction.PG_DOWN;
-//                }
-
-//                return null;
-//            },
-
-//            /**
-//             * @ngdoc service
-//             * @name cellNavColumnBuilder
-//             * @methodOf ui.grid.cellNav.service:uiGridCellNavService
-//             * @description columnBuilder function that adds cell navigation properties to grid column
-//             * @returns {promise} promise that will load any needed templates when resolved
-//             */
-//            cellNavColumnBuilder: function (colDef, col, gridOptions) {
-//                var promises = [];
-
-//                /**
-//                 *  @ngdoc object
-//                 *  @name ui.grid.cellNav.api:ColumnDef
-//                 *
-//                 *  @description Column Definitions for cellNav feature, these are available to be
-//                 *  set using the ui-grid {@link ui.grid.class:GridOptions.columnDef gridOptions.columnDefs}
-//                 */
-
-//                /**
-//                 *  @ngdoc object
-//                 *  @name allowCellFocus
-//                 *  @propertyOf  ui.grid.cellNav.api:ColumnDef
-//                 *  @description Enable focus on a cell within this column.
-//                 *  <br/>Defaults to true
-//                 */
-//                colDef.allowCellFocus = colDef.allowCellFocus === undefined ? true : colDef.allowCellFocus;
-
-//                return $q.all(promises);
-//            },
-
-//            /**
-//             * @ngdoc method
-//             * @methodOf ui.grid.cellNav.service:uiGridCellNavService
-//             * @name scrollToFocus
-//             * @description Scroll the grid such that the specified
-//             * row and column is in view, and set focus to the cell in that row and column
-//             * @param {Grid} grid the grid you'd like to act upon, usually available
-//             * from gridApi.grid
-//             * @param {object} rowEntity gridOptions.data[] array instance to make visible and set focus to
-//             * @param {object} colDef to make visible and set focus to
-//             * @returns {promise} a promise that is resolved after any scrolling is finished
-//             */
-//            scrollToFocus: function (grid, rowEntity, colDef) {
-//                var gridRow = null, gridCol = null;
-
-//                if (typeof (rowEntity) !== 'undefined' && rowEntity !== null) {
-//                    gridRow = grid.getRow(rowEntity);
-//                }
-
-//                if (typeof (colDef) !== 'undefined' && colDef !== null) {
-//                    gridCol = grid.getColumn(colDef.name ? colDef.name : colDef.field);
-//                }
-//                return grid.api.core.scrollToIfNecessary(gridRow, gridCol).then(function () {
-//                    var rowCol = { row: gridRow, col: gridCol };
-
-//                    // Broadcast the navigation
-//                    if (gridRow !== null && gridCol !== null) {
-//                        grid.cellNav.broadcastCellNav(rowCol);
-//                    }
-//                });
-
-
-
-//            },
-
-
-//            /**
-//             * @ngdoc method
-//             * @methodOf ui.grid.cellNav.service:uiGridCellNavService
-//             * @name getLeftWidth
-//             * @description Get the current drawn width of the columns in the
-//             * grid up to the numbered column, and add an apportionment for the
-//             * column that we're on.  So if we are on column 0, we want to scroll
-//             * 0% (i.e. exclude this column from calc).  If we're on the last column
-//             * we want to scroll to 100% (i.e. include this column in the calc). So
-//             * we include (thisColIndex / totalNumberCols) % of this column width
-//             * @param {Grid} grid the grid you'd like to act upon, usually available
-//             * from gridApi.grid
-//             * @param {gridCol} upToCol the column to total up to and including
-//             */
-//            getLeftWidth: function (grid, upToCol) {
-//                var width = 0;
-
-//                if (!upToCol) {
-//                    return width;
-//                }
-
-//                var lastIndex = grid.renderContainers.body.visibleColumnCache.indexOf(upToCol);
-
-//                // total column widths up-to but not including the passed in column
-//                grid.renderContainers.body.visibleColumnCache.forEach(function (col, index) {
-//                    if (index < lastIndex) {
-//                        width += col.drawnWidth;
-//                    }
-//                });
-
-//                // pro-rata the final column based on % of total columns.
-//                var percentage = lastIndex === 0 ? 0 : (lastIndex + 1) / grid.renderContainers.body.visibleColumnCache.length;
-//                width += upToCol.drawnWidth * percentage;
-
-//                return width;
-//            }
-//        };
-
-//        return service;
-//    }]
-//    );
-
 module.directive('nextFocus', [function () {
     return {
         restrict: 'A',
@@ -2110,6 +1799,7 @@ module.filter('textDate', ['$filter', function ($filter) {
         return $filter('date')(date, format);
     };
 }]);
+
 module.directive('uiGridEditDatepicker', ['$timeout', '$document', 'uiGridConstants', 'uiGridEditConstants', function ($timeout, $document, uiGridConstants, uiGridEditConstants) {
     return {
         template: function (element, attrs) {

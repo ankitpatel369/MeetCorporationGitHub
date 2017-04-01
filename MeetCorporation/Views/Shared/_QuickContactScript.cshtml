@@ -1,0 +1,24 @@
+﻿    module.controller("ContactUs", ['$scope', '$filter', '$http', '$q', '$interval', function ($scope, $filter, $http, $q, $interval, $window) {
+        $scope.Contact = {};
+
+        $scope.SaveContact = function () {
+            if (ValidateRequired("Con") == false) {
+                return;
+            };
+            var response = $http({
+                method: "POST",
+                async: true,
+                url: '@Url.Action("SaveContact", "ContactUs")',
+                data: { model: $scope.Contact },
+                dataType: "json",
+            }).success(function (data) {
+                if (data != 0) {
+                    toast('Your details sucessfully submited. !!!');
+                    $scope.Contact = {};
+                }
+                else {
+                    alert('Please contact to meet corporation...');
+                }
+            });
+        }
+    }]);
